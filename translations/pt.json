@@ -1,0 +1,143 @@
+{
+  "app_title": "Conselhos de Agentes IA",
+  "app_subtitle": "Selecione um conselho para obter consultoria estratégica de equipes executivas especializadas em IA",
+  "powered_by": "Desenvolvido com Claude AI | Construído com CrewAI",
+
+  "home": {
+    "title": "Conselhos de Agentes IA",
+    "subtitle": "Selecione um conselho para obter consultoria estratégica de equipes executivas especializadas em IA"
+  },
+
+  "council": {
+    "executive": {
+      "title": "The DJ Crew",
+      "subtitle": "Obtenha consultoria de toda sua equipe sobre sua carreira musical",
+      "description": "Obtenha mentoria abrangente de uma equipe de profissionais da indústria musical. Perfeito para decisões de carreira, feedback de produção e planejamento estratégico.",
+      "members": {
+        "ceo": "CEO",
+        "cfo": "CFO",
+        "cto": "CTO",
+        "cmo": "CMO"
+      }
+    }
+  },
+
+  "form": {
+    "question_label": "Sua Pergunta",
+    "question_placeholder": "Qual pergunta sobre DJing ou produção musical você gostaria de ajuda da sua equipe?",
+    "question_hint": "Dica: Pressione Cmd/Ctrl + Enter para enviar rapidamente",
+    "context_label": "Contexto (Opcional)",
+    "context_add": "Adicionar Contexto",
+    "context_key_placeholder": "Chave (ex: Orçamento)",
+    "context_value_placeholder": "Valor (ex: R$ 500 mil)",
+    "context_remove": "Remover",
+    "agents_label": "Quem da equipe deve ajudar com isso?",
+    "agents_all": "A equipe inteira",
+    "agents_max_hint": "Selecione até 3 agentes",
+    "submit_button": "Iniciar a Discussão",
+    "submit_button_loading": "Deliberando...",
+    "submit_button_success": "Deliberação Concluída",
+    "results_title": "Recomendação do Conselho",
+    "loading_message": "O conselho está deliberando... Isso pode levar 30-60 segundos",
+    "copy_button": "Copiar para Área de Transferência",
+    "copy_success": "Copiado!",
+    "character_count": "caracteres",
+    "progress_consulting": "Conversando com a equipe, aguarde...",
+    "progress_waiting": "Aguardando resposta de: {agent}...",
+    "progress_responded": "✓ {agent} respondeu",
+    "followup_title": "Pergunta de Acompanhamento",
+    "followup_hint": "Faça uma pergunta de acompanhamento aos mesmos agentes com a resposta anterior como contexto",
+    "followup_continuing": "Continuando com:",
+    "followup_placeholder": "Faça uma pergunta de acompanhamento...",
+    "followup_button": "Perguntar Novamente",
+    "summary_title": "Principais Pontos",
+    "summary_generating": "Gerando resumo..."
+  },
+
+  "navigation": {
+    "back_to_councils": "Voltar para Conselhos"
+  },
+
+  "errors": {
+    "question_required": "Por favor, insira uma pergunta para o conselho deliberar.",
+    "deliberation_error": "Ocorreu um erro durante a deliberação.",
+    "connection_error": "Falha ao conectar ao conselho. Por favor, tente novamente.",
+    "agents_load_error": "Falha ao carregar agentes. Por favor, atualize a página.",
+    "rate_limit": "Por favor, aguarde {seconds} segundos antes de fazer outra requisição.",
+    "timeout": "A deliberação demorou muito tempo. Por favor, tente novamente.",
+    "api_config_error": "Erro de configuração da API. Por favor, verifique as chaves de API e configurações."
+  },
+
+  "locale": {
+    "language": "Idioma",
+    "en": "English",
+    "pt": "Português"
+  },
+
+  "agents": {
+    "ar": {
+      "role": "Mentor Artístico (A&R)",
+      "expertise": [
+        "Identidade sonora",
+        "Análise de referências",
+        "Roadmap artístico"
+      ]
+    },
+    "coach": {
+      "role": "Coach de DJ",
+      "expertise": [
+        "Análise de set",
+        "Plano de treino",
+        "Equipamento recomendado"
+      ]
+    },
+    "produtor": {
+      "role": "Produtor Musical Mentor",
+      "expertise": [
+        "Feedback de mix",
+        "Arranjo",
+        "Sound design"
+      ]
+    },
+    "curador": {
+      "role": "Curador / Crítico Musical",
+      "expertise": [
+        "Análise técnica",
+        "Avaliação comercial",
+        "Ações de melhoria"
+      ]
+    },
+    "estratega": {
+      "role": "Estrategista Digital",
+      "expertise": [
+        "Planejamento de lançamento",
+        "Conteúdo social",
+        "Estratégia de anúncios"
+      ]
+    },
+    "booker": {
+      "role": "Booker / Agente de Shows",
+      "expertise": [
+        "Negociação de gigs",
+        "Press kit",
+        "Rider"
+      ]
+    },
+    "manager": {
+      "role": "Manager / Consultor de Carreira",
+      "expertise": [
+        "Planejamento de carreira",
+        "Orçamento",
+        "Cronograma"
+      ]
+    },
+    "advogado": {
+      "role": "Advogado de Entretenimento",
+      "expertise": [
+        "Revisão de contrato",
+        "Direitos autorais",
+        "Registro de obras"
+      ]
+    }
+  }
+}

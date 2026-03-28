@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="{{ 'pt-BR' if locale == 'pt' else 'en' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t('council.executive.title') }} - {{ t('app_title') }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Locale Switcher Styles */
+        .locale-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(20, 20, 35, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(138, 43, 226, 0.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 0 20px rgba(138, 43, 226, 0.2);
+        }
+
+        .locale-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: #c084fc;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .locale-btn:hover {
+            background: rgba(138, 43, 226, 0.3);
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.4);
+        }
+
+        .locale-btn.active {
+            background: linear-gradient(135deg, #8a2be2 0%, #a855f7 100%);
+            color: white;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+        }
+
+        .hint {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            color: #9ca3af;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .locale-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 0.4rem;
+            }
+
+            .locale-btn {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Locale Switcher -->
+    <div class="locale-switcher">
+        <button class="locale-btn {{ 'active' if locale == 'en' else '' }}" onclick="switchLocale('en')" title="English">
+            🇺🇸 EN
+        </button>
+        <button class="locale-btn {{ 'active' if locale == 'pt' else '' }}" onclick="switchLocale('pt')" title="Português">
+            🇧🇷 PT
+        </button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>🎧 {{ t('council.executive.title') }}</h1>
+            <p class="subtitle">{{ t('council.executive.subtitle') }}</p>
+        </header>
+
+        <main>
+            <!-- Combined Question and Agent Selection -->
+            <section class="card">
+                <h2>📝 {{ t('form.question_label') }}</h2>
+                <textarea
+                    id="question"
+                    placeholder="{{ t('form.question_placeholder') }}"
+                    rows="4"
+                    aria-label="{{ t('form.question_label') }}"
+                ></textarea>
+                <div class="hint">💡 {{ t('form.question_hint') }}</div>
+
+                <div style="margin-top: 30px;">
+                    <h2>👥 {{ t('form.agents_label') }}</h2>
+                    <p class="hint" style="margin-top: 0; margin-bottom: 15px;">{{ t('form.agents_max_hint') }}</p>
+                    <div id="agent-selection">
+                        <div id="agents-list"></div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div style="margin-top: 30px;">
+                    <button class="btn-primary" onclick="submitDeliberation()" id="submit-btn">
+                        🚀 {{ t('form.submit_button') }}
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="card" id="results-section" style="display: none;">
+                <h2>💡 {{ t('form.results_title') }}</h2>
+                <div id="results" class="results-content"></div>
+            </section>
+
+            <!-- Follow-up Responses Container -->
+            <div id="followup-responses-container"></div>
+
+            <!-- Follow-up Question Section -->
+            <section class="card" id="followup-section" style="display: none;">
+                <h2 style="font-size: 1.3rem; margin-bottom: 15px;">💬 {{ t('form.followup_title') }}</h2>
+                <p class="hint" style="margin-top: 0; margin-bottom: 15px;">{{ t('form.followup_hint') }}</p>
+
+                <!-- Selected Agents Display -->
+                <div id="followup-agents-display" style="margin-bottom: 15px;"></div>
+
+                <textarea
+                    id="followup-question"
+                    placeholder="{{ t('form.followup_placeholder') }}"
+                    rows="3"
+                    style="width: 100%; margin-bottom: 15px;"
+                ></textarea>
+
+                <button class="btn-primary" onclick="submitFollowup()" id="followup-btn" style="padding: 12px 24px; font-size: 1rem;">
+                    🚀 {{ t('form.followup_button') }}
+                </button>
+            </section>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="loading-modal">
+                    <div class="spinner"></div>
+                    <p>{{ t('form.loading_message') }}</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>2025 deejay.com.br</p>
+        </footer>
+    </div>
+
+    <!-- Translations data for JavaScript -->
+    <script id="translations-data" type="application/json">{{ get_translations(locale) | tojson }}</script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

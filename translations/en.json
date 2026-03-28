@@ -1,0 +1,143 @@
+{
+  "app_title": "AI Agent Councils",
+  "app_subtitle": "Select a council to get strategic advice from specialized AI executive teams",
+  "powered_by": "Powered by Claude AI | Built with CrewAI",
+
+  "home": {
+    "title": "AI Agent Councils",
+    "subtitle": "Select a council to get strategic advice from specialized AI executive teams"
+  },
+
+  "council": {
+    "executive": {
+      "title": "The DJ Crew",
+      "subtitle": "Get advice from your full staff on your musical career",
+      "description": "Get comprehensive mentorship from a team of music industry professionals. Perfect for career decisions, production feedback, and strategic planning.",
+      "members": {
+        "ceo": "CEO",
+        "cfo": "CFO",
+        "cto": "CTO",
+        "cmo": "CMO"
+      }
+    }
+  },
+
+  "form": {
+    "question_label": "Your Question",
+    "question_placeholder": "What question about DJing or music production would you like help from your staff?",
+    "question_hint": "Tip: Press Cmd/Ctrl + Enter to submit quickly",
+    "context_label": "Context (Optional)",
+    "context_add": "Add Context",
+    "context_key_placeholder": "Key (e.g., Budget)",
+    "context_value_placeholder": "Value (e.g., $500K)",
+    "context_remove": "Remove",
+    "agents_label": "Who from the staff should help with this?",
+    "agents_all": "The entire crew",
+    "agents_max_hint": "Select up to 3 agents",
+    "submit_button": "Start the Discussion",
+    "submit_button_loading": "Deliberating...",
+    "submit_button_success": "Deliberation Complete",
+    "results_title": "Council Recommendation",
+    "loading_message": "Council is deliberating... This may take 30-60 seconds",
+    "copy_button": "Copy to Clipboard",
+    "copy_success": "Copied!",
+    "character_count": "characters",
+    "progress_consulting": "Talking with the team, please wait...",
+    "progress_waiting": "Waiting for response from: {agent}...",
+    "progress_responded": "✓ {agent} responded",
+    "followup_title": "Follow-up Question",
+    "followup_hint": "Ask a follow-up question to the same agents with the previous answer as context",
+    "followup_continuing": "Continuing with:",
+    "followup_placeholder": "Ask a follow-up question...",
+    "followup_button": "Ask Follow-up",
+    "summary_title": "Key Takeaways",
+    "summary_generating": "Generating summary..."
+  },
+
+  "navigation": {
+    "back_to_councils": "Back to Councils"
+  },
+
+  "errors": {
+    "question_required": "Please enter a question for the council to deliberate on.",
+    "deliberation_error": "An error occurred during deliberation.",
+    "connection_error": "Failed to connect to the council. Please try again.",
+    "agents_load_error": "Failed to load agents. Please refresh the page.",
+    "rate_limit": "Please wait {seconds} seconds before making another request.",
+    "timeout": "The deliberation took too long. Please try again.",
+    "api_config_error": "API configuration error. Please check API keys and settings."
+  },
+
+  "locale": {
+    "language": "Language",
+    "en": "English",
+    "pt": "Português"
+  },
+
+  "agents": {
+    "ar": {
+      "role": "Artistic Mentor (A&R)",
+      "expertise": [
+        "Sonic identity",
+        "Reference analysis",
+        "Artistic roadmap"
+      ]
+    },
+    "coach": {
+      "role": "DJ Coach",
+      "expertise": [
+        "Set analysis",
+        "Training plan",
+        "Recommended equipment"
+      ]
+    },
+    "produtor": {
+      "role": "Music Producer Mentor",
+      "expertise": [
+        "Mix feedback",
+        "Arrangement",
+        "Sound design"
+      ]
+    },
+    "curador": {
+      "role": "Curator / Music Critic",
+      "expertise": [
+        "Technical analysis",
+        "Commercial evaluation",
+        "Improvement actions"
+      ]
+    },
+    "estratega": {
+      "role": "Digital Strategist",
+      "expertise": [
+        "Release planning",
+        "Social content",
+        "Ads strategy"
+      ]
+    },
+    "booker": {
+      "role": "Booker / Show Agent",
+      "expertise": [
+        "Gig negotiation",
+        "Press kit",
+        "Rider"
+      ]
+    },
+    "manager": {
+      "role": "Manager / Career Consultant",
+      "expertise": [
+        "Career planning",
+        "Budget",
+        "Schedule"
+      ]
+    },
+    "advogado": {
+      "role": "Entertainment Lawyer",
+      "expertise": [
+        "Contract review",
+        "Copyright",
+        "Work registration"
+      ]
+    }
+  }
+}
